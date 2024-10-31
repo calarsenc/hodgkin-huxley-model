@@ -1,6 +1,8 @@
 # Hodgkin-Huxley HH Compart Model Python Implementation 
 
-Repo forthe Hodgkin-Huxley compartmental model of neuronal firing using Python.
+Repo forthe Hodgkin-Huxley compartmental model of how action potentials are initiated and propagated using Python.
+
+The visualisations will gradually get more complex. 
 
 ## **Files**
 
@@ -23,3 +25,8 @@ Repo forthe Hodgkin-Huxley compartmental model of neuronal firing using Python.
    git clone https://github.com/calarsenc/hodgkin-huxley-model.git
 
    cd hodgkin-huxley-model
+```
+
+## Ref:
+
+Hodgkin, A. L., & Huxley, A. F. (1952). A quantitative description of membrane current and its application to conduction and excitation in nerve. The Journal of physiology, 117(4), 500-544.
