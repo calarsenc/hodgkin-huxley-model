@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from hodgkin_huxley import HodgkinHuxleyModel
+from matplotlib.animation import FuncAnimation
 
 def main():
     # Time parameters
@@ -18,22 +19,24 @@ def main():
     # Run the simulation
     V, m, h, n = neuron.simulate(time, I)
 
-    # Plot the results
-    plt.figure(figsize=(12, 8))
+    # Live visualization
+    fig, ax = plt.subplots()
+    ax.set_title('Live Membrane Potential')
+    ax.set_xlabel('Time (ms)')
+    ax.set_ylabel('Membrane Potential (mV)')
+    line, = ax.plot([], [], 'b')
 
-    # Membrane potential subplot
-    plt.subplot(2, 1, 1)
-    plt.plot(time, V, 'b')
-    plt.title('Hodgkin-Huxley Neuron Model Simulation')
-    plt.ylabel('Membrane Potential (mV)')
+    def init():
+        ax.set_xlim(0, T)
+        ax.set_ylim(np.min(V) - 5, np.max(V) + 5)
+        line.set_data([], [])
+        return line,
 
-    # Input current subplot
-    plt.subplot(2, 1, 2)
-    plt.plot(time, I, 'r')
-    plt.xlabel('Time (ms)')
-    plt.ylabel('Input Current ($\mu$A/cm$^2$)')
+    def update(frame):
+        line.set_data(time[:frame], V[:frame])
+        return line,
 
-    plt.tight_layout()
+    ani = FuncAnimation(fig, update, frames=len(time), init_func=init, blit=True, interval=1)
     plt.show()
 
 if __name__ == "__main__":
