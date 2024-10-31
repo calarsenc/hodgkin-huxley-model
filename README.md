@@ -102,8 +102,8 @@ You can modify parameters in `main.py` and `hodgkin_huxley.py` to see how they a
 
    ```python
    I[int(10/dt):int(40/dt)] = 20.0  # Increase current to 20 µA/cm²
-
-```
+   ```
+   
 ## **Files**
 
 - `main.py`: The main script to run the simulation.
