@@ -18,41 +18,43 @@ Below you find the set of differential equations representing the ionic currents
 
 ### **Membrane Potential Equation**
 
-\[
+$$
 C_m \frac{dV}{dt} = I(t) - I_{\text{Na}} - I_{\text{K}} - I_{\text{L}}
-\]
+$$
 
 Where:
-- \( C_m \) is the membrane capacitance per unit area.
-- \( I(t) \) is the input (stimulus) current.
-- \( I_{\text{Na}} \), \( I_{\text{K}} \), and \( I_{\text{L}} \) are the sodium, potassium, and leak currents, respectively.
+
+- $C_m$ is the membrane capacitance per unit area.
+- $I(t)$ is the input (stimulus) current.
+- $I_{\text{Na}}$, $I_{\text{K}}$, and $I_{\text{L}}$ are the sodium, potassium, and leak currents, respectively.
 
 ### **Ionic Currents**
 
-\[
+$$
 \begin{align*}
 I_{\text{Na}} &= g_{\text{Na}} m^3 h (V - E_{\text{Na}}) \\
 I_{\text{K}} &= g_{\text{K}} n^4 (V - E_{\text{K}}) \\
 I_{\text{L}} &= g_{\text{L}} (V - E_{\text{L}})
 \end{align*}
-\]
+$$
 
 Where:
-- \( g_{\text{Na}} \), \( g_{\text{K}} \), and \( g_{\text{L}} \) are the maximum conductances.
-- \( E_{\text{Na}} \), \( E_{\text{K}} \), and \( E_{\text{L}} \) are the reversal potentials.
-- \( m \), \( h \), and \( n \) are gating variables.
+
+- $g_{\text{Na}}$, $g_{\text{K}}$, and $g_{\text{L}}$ are the maximum conductances.
+- $E_{\text{Na}}$, $E_{\text{K}}$, and $E_{\text{L}}$ are the reversal potentials.
+- $m$, $h$, and $n$ are gating variables.
 
 ### **Gating Variables**
 
 The gating variables evolve according to:
 
-\[
+$$
 \frac{dx}{dt} = \alpha_x(V)(1 - x) - \beta_x(V)x \quad \text{for } x = m, h, n
-\]
+$$
 
 With the voltage-dependent rate constants:
 
-\[
+$$
 \begin{align*}
 \alpha_n(V) &= 0.01 \frac{V + 55}{1 - e^{-(V + 55)/10}} \\
 \beta_n(V) &= 0.125 e^{-(V + 65)/80} \\
@@ -61,19 +63,18 @@ With the voltage-dependent rate constants:
 \alpha_h(V) &= 0.07 e^{-(V + 65)/20} \\
 \beta_h(V) &= \frac{1}{1 + e^{-(V + 35)/10}}
 \end{align*}
-\]
+$$
 
 **Parameters:**
 
-- \( C_m = 1 \, \mu\text{F/cm}^2 \)
-- \( g_{\text{Na}} = 120 \, \text{mS/cm}^2 \)
-- \( g_{\text{K}} = 36 \, \text{mS/cm}^2 \)
-- \( g_{\text{L}} = 0.3 \, \text{mS/cm}^2 \)
-- \( E_{\text{Na}} = 50 \, \text{mV} \)
-- \( E_{\text{K}} = -77 \, \text{mV} \)
-- \( E_{\text{L}} = -54.387 \, \text{mV} \)
+- $C_m = 1\, \mu\text{F/cm}^2$
+- $g_{\text{Na}} = 120\, \text{mS/cm}^2$
+- $g_{\text{K}} = 36\, \text{mS/cm}^2$
+- $g_{\text{L}} = 0.3\, \text{mS/cm}^2$
+- $E_{\text{Na}} = 50\, \text{mV}$
+- $E_{\text{K}} = -77\, \text{mV}$
+- $E_{\text{L}} = -54.387\, \text{mV}$
 
----
 
 ## **How the Model Works**
 
